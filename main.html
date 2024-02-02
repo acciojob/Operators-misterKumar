@@ -1,16 +1,82 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <title>Calculator and Text Changer</title>
+    <style>
+        .division {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+    <h1>Calculator</h1>
+    <label for="num1">Number 1:</label>
+    <input type="number" id="num1"><br><br>
 
+    <label for="operator">Select an operation:</label>
+    <select id="operator">
+        <option value="+">Addition (+)</option>
+        <option value="-">Subtraction (-)</option>
+        <option value="*">Multiplication (*)</option>
+        <option value="/">Division (/)</option>
+    </select><br><br>
+
+    <label for="num2">Number 2:</label>
+    <input type="number" id="num2"><br><br>
+
+    <button id="calculate">Calculate</button><br><br>
+
+    <div id="result">Result: </div>
+
+    <h1>Text Changer</h1>
+    <button id="change_text">Change Text</button><br><br>
+
+    <div class="division">Hello</div>
+    <div class="division">Welcome</div>
+    <div class="division">To</div>
+    <div class="division">My</div>
+    <div class="division">Class</div>
+
+    <script>
+        document.getElementById("calculate").addEventListener("click", function() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const operator = document.getElementById("operator").value;
+            let result;
+
+            switch (operator) {
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    if (num2 !== 0) {
+                        result = num1 / num2;
+                    } else {
+                        result = "Division by zero is not allowed.";
+                    }
+                    break;
+                default:
+                    result = "Invalid operator";
+            }
+
+            document.getElementById("result").textContent = "Result: " + result;
+        });
+
+        document.getElementById("change_text").addEventListener("click", function() {
+            const newTexts = ["Bye", "Good Bye", "To", "Your", "Class"];
+            const divisions = document.getElementsByClassName("division");
+
+            for (let i = 0; i < divisions.length; i++) {
+                divisions[i].textContent = newTexts[i];
+            }
+        });
+    </script>
 </body>
-
 </html>
