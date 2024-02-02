@@ -27,7 +27,7 @@
 
     <button id="calculate">Calculate</button><br><br>
 
-    <div id="result">Result: </div>
+    <div id="result"></div>
 
     <h1>Text Changer</h1>
     <button id="change_text">Change Text</button><br><br>
@@ -66,7 +66,7 @@
                     result = "Invalid operator";
             }
 
-            document.getElementById("result").textContent = "Result: " + result;
+            document.getElementById("result").textContent = "" + result;
         });
 
         document.getElementById("change_text").addEventListener("click", function() {
